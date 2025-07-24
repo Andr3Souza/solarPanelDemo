@@ -1,0 +1,101 @@
+<template>
+    <lightning-card  title="">
+        <div class="filter-container">
+            <lightning-combobox
+                name="country"
+                label="Country"
+                value={selectedCountry}
+                options={countryOptions}
+                onchange={handleCountryChange}
+                style="width: 20%;">
+            </lightning-combobox>
+
+            <lightning-combobox
+                name="city"
+                label="City"
+                value={selectedCity}
+                options={cityOptions}
+                onchange={handleCityChange}
+                style="width: 20%;">
+            </lightning-combobox>
+
+            <lightning-button style="margin-top: 22px;" label="Search" onclick={handleSearch}></lightning-button>
+        </div>
+        <div class="line"></div>
+
+        <lightning-map
+            map-markers={mapMarkers}
+            markers-title={markersTitle}
+            center={center}
+            onmarkerselect={handleMarkerSelect}
+        ></lightning-map>
+
+    
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Header -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-modal__close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="Fechar" size="small"></lightning-icon>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Weather Information</h2>
+                </header>
+                <!-- Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-card  variant="Narrow"  title={currentMarker.accountName} icon-name="standard:account">
+                        <lightning-button variant="brand" label="Update Weather Info" title="Update Weather Info" onclick={getCurrentWeather} class="slds-m-left_x-small" slot="actions"></lightning-button>
+                        <div class="line"></div>
+                        <div class="slds-p-horizontal_small">
+                            <div class="all-container">
+                                <template if:false={currentMarker.ctemperature}>
+                                    <div>
+                                        There is no weather information, try update weather info!
+                                    </div>
+                                </template>
+                                <template if:true={currentMarker.ctemperature}>
+                                    <div class="condition-container">
+                                        <div class="condition-icon">
+                                            <img src={currentMarker.iconUrl} alt="Weather Icon" class="weather-icon" />
+                                        </div>
+                                        <div class="condition-text">
+                                            {currentMarker.condition}
+                                        </div>
+                                    </div>
+                                    <div class="temperature-container">
+                                        <p>
+                                            {currentMarker.ctemperature}°C
+                                        </p>
+                                        <p>
+                                            {currentMarker.ftemperature}°F
+                                        </p>
+                                    </div>    
+                                </template>
+                            </div>
+                            <div class="line"></div>
+                            <lightning-card style="margin-top: 20px;" variant="Narrow"  title="Forecast Weather Information" icon-name="custom:custom97">
+                                <lightning-button variant="brand" label="Get Weather for next 7 days" title="Update Weather Info" onclick={getForecastWeather} class="slds-m-left_x-small" slot="actions"></lightning-button>
+                                <template if:true={showTable}>
+                                    <div class="weather-table">
+                                        <lightning-datatable
+                                            key-field="id"
+                                            data={forecastData}
+                                            columns={columns}
+                                            hide-checkbox-column>
+                                        </lightning-datatable>
+                                    </div>
+                                </template>
+                            </lightning-card>
+                        </div>
+                    </lightning-card>
+                </div>
+                <!-- Footer -->
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Ok" variant="neutral" onclick={closeModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    </lightning-card>
+</template>

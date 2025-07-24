@@ -1,0 +1,39 @@
+.all-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.condition-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.condition-icon img{
+    width: 100px;
+    height: 100px;
+}
+.condition-text{
+    font-size: 20px;
+}
+
+.temperature-container{
+    font-size: 30px;
+}
+
+.line{
+    height: 1px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background: #0000003d;
+}
+
+.filter-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.weather-table{
+    margin-top: 20px;
+}
