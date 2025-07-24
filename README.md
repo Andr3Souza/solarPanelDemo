@@ -1,18 +1,26 @@
-# Salesforce DX Project: Next Steps
+# ☀️ Solar Energy Demo Project (Salesforce)
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This is a demo Salesforce project developed to showcase my skills as a Salesforce Developer. It simulates a system for managing solar panel installations, including location tracking and real-time weather integration.
 
-## How Do You Plan to Deploy Your Changes?
+## 🚀 Project Overview
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+This demo allows users to:
+- Manage customer accounts.
+- Register solar panel installations with geolocation data.
+- Display weather forecasts for each installation based on latitude and longitude.
+- Use Lightning Web Components (LWC) to display map markers and temperature conditions.
+- Integrate external APIs to fetch weather data.
 
-## Configure Your Salesforce DX Project
+---
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## 🔧 Technologies Used
 
-## Read All About It
+- Salesforce Apex
+- Lightning Web Components (LWC)
+- Custom Metadata Types
+- Named Credentials (for secure API access)
+- OpenCage & WeatherAPI (free APIs)
+- REST Integration
+- CSV Data Import
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+---
